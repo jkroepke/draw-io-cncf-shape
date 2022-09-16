@@ -29,6 +29,11 @@ function mxGraphModelXML(svg) {
         svgWidth = 500
     }
 
+    if (svgHeight > 500) {
+        svgWidth = Math.round(svgWidth * (500 / svgHeight))
+        svgHeight = 500
+    }
+
     return [
         `<mxGraphModel><root><mxCell id="0" /><mxCell id="1" parent="0"/><mxCell id="2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,`,
         Buffer.from(svg).toString('base64'),
