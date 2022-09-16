@@ -11,10 +11,13 @@ function mxLibraryEntryXML(contents) {
 }
 
 // possible options: w (width), h (height), aspect (fixed/variable), title (stencil title)
-function mxLibraryEntry(title, contents, options) {
+function mxLibraryEntry(title, imageProperties, options) {
     return Object.assign({
-        xml: mxLibraryEntryXML(contents),
-        title: title
+        xml: mxLibraryEntryXML(imageProperties.xml),
+        title: title,
+        aspect: 'fixed',
+        w: imageProperties.w,
+        h: imageProperties.h
     }, options);
 }
 
@@ -34,11 +37,15 @@ function mxGraphModelXML(svg) {
         svgHeight = 500
     }
 
-    return [
-        `<mxGraphModel><root><mxCell id="0" /><mxCell id="1" parent="0"/><mxCell id="2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,`,
-        Buffer.from(svg).toString('base64'),
-        `;" vertex="1" parent="1"><mxGeometry width="${svgWidth}" height="${svgHeight}" as="geometry"/></mxCell></root></mxGraphModel>`
-    ].join("");
+    return {
+        "w": svgWidth,
+        "h": svgHeight,
+        "xml": [
+            `<mxGraphModel><root><mxCell id="0" /><mxCell id="1" parent="0"/><mxCell id="2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,`,
+            Buffer.from(svg).toString('base64'),
+            `;" vertex="1" parent="1"><mxGeometry width="${svgWidth}" height="${svgHeight}" as="geometry"/></mxCell></root></mxGraphModel>`
+        ].join("")
+    };
 }
 
 (async () => {
