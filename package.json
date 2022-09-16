@@ -1,0 +1,8 @@
+{
+  "name": "draw-io-cncf-shape",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "pako": "^2.0.4"
+  },
+  "license": "Apache-2.0"
+}
