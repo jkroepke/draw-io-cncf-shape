@@ -1,7 +1,7 @@
 # draw-io-cncf-shape
 Updated CNCF Shape based on the CNCF landscape
 
-## How to emmbed the shapes
+## How to embed the shapes
 
 Left Top, navigate to 
 
