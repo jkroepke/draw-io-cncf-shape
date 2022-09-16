@@ -32,6 +32,10 @@ function mxGraphModelXML(svg) {
 }
 
 (async () => {
+    if (fs.existsSync('generated')) {
+        fs.mkdirSync('generated')
+    }
+
     const res = await axios.get('https://landscape.cncf.io/api/ids?category=&project=&license=&organization=&headquarters=&company-type=&industries=&sort=name&grouping=project&bestpractices=&enduser=&parent=&language=&format=card')
 
     for (let category of res.data.items) {
