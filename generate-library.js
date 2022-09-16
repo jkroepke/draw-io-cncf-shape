@@ -32,7 +32,7 @@ function mxGraphModelXML(svg) {
 }
 
 (async () => {
-    if (fs.existsSync('generated')) {
+    if (!fs.existsSync('generated')) {
         fs.mkdirSync('generated')
     }
 
