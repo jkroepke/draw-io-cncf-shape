@@ -21,8 +21,13 @@ function mxLibraryEntry(title, contents, options) {
 function mxGraphModelXML(svg) {
     // -4.47 -3.97 440.44 381.69
     const result = svg.match(/viewBox="([-\d.]+)\s([-\d.]+)\s([-\d.]+)\s([-\d.]+)"/);
-    const svgWidth = parseInt(result[3])
-    const svgHeight = parseInt(result[4])
+    let svgWidth = parseInt(result[3])
+    let svgHeight = parseInt(result[4])
+
+    if (svgWidth > 500) {
+        svgHeight = Math.round(svgHeight * (500 / svgWidth))
+        svgWidth = 500
+    }
 
     return [
         `<mxGraphModel><root><mxCell id="0" /><mxCell id="1" parent="0"/><mxCell id="2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,`,
