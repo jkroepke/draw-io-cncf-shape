@@ -4,6 +4,8 @@ const axios = require("axios");
 const fs = require('fs');
 const pako = require('pako');
 
+const maxDimension = 200;
+
 function mxLibraryXML(entries) {
     return ["<mxlibrary>", JSON.stringify(entries), "</mxlibrary>"].join("");
 }
@@ -33,16 +35,16 @@ function getDimensionFromSvg(svg) {
 function mxGraphModelXML(svg) {
     let {svgWidth, svgHeight} = getDimensionFromSvg(svg);
 
-    // limit width to 500
-    if (svgWidth > 500) {
-        svgHeight = Math.round(svgHeight * (500 / svgWidth))
-        svgWidth = 500
+    // limit width
+    if (svgWidth > maxDimension) {
+        svgHeight = Math.round(svgHeight * (maxDimension / svgWidth))
+        svgWidth = maxDimension
     }
 
-    // limit height to 500
-    if (svgHeight > 500) {
-        svgWidth = Math.round(svgWidth * (500 / svgHeight))
-        svgHeight = 500
+    // limit height
+    if (svgHeight > maxDimension) {
+        svgWidth = Math.round(svgWidth * (maxDimension / svgHeight))
+        svgHeight = maxDimension
     }
 
     return {
