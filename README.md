@@ -1,5 +1,6 @@
 # draw-io-cncf-shape
-Updated CNCF Shape based on the CNCF landscape
+
+This is collection of the CNCF logos packed into a draw.io importable file to draw cloud native architectures
 
 ## How to embed the shapes
 
