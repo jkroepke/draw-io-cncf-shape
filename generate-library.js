@@ -29,11 +29,11 @@ function getDimensionFromSvg(svg) {
     const result = svg.match(/viewBox="([-\d.]+)\s([-\d.]+)\s([-\d.]+)\s([-\d.]+)"/);
     let svgWidth = parseInt(result[3])
     let svgHeight = parseInt(result[4])
-    return {svgWidth, svgHeight};
+    return { svgWidth, svgHeight };
 }
 
 function mxGraphModelXML(svg) {
-    let {svgWidth, svgHeight} = getDimensionFromSvg(svg);
+    let { svgWidth, svgHeight } = getDimensionFromSvg(svg);
 
     // limit width
     if (svgWidth > maxDimension) {
@@ -66,18 +66,23 @@ if (!fs.existsSync('generated')) {
 }
 
 (async () => {
-    const res = await axios.get('https://landscape.cncf.io/api/ids?format=card')
+    var urls = ['https://landscape.cncf.io/api/ids?format=card', 'https://landscape.cncf.io/api/ids?format=card&project=sandbox'];
 
-    for (let category of res.data.items) {
-        const logos = [];
+    for (var i = 0; i < urls.length; i++) {
 
-        for (let items of category.items.filter(item => !item.id.endsWith("-2"))) {
-            const svgImage = (await axios.get(`https://landscape.cncf.io/logos/${items.id}.svg`)).data
+        var res = await axios.get(urls[i])
 
-            logos.push(mxLibraryEntry(items.id, mxGraphModelXML(svgImage)))
+        for (let category of res.data.items) {
+            const logos = [];
+
+            for (let items of category.items.filter(item => !item.id.endsWith("-2"))) {
+                const svgImage = (await axios.get(`https://landscape.cncf.io/logos/${items.id}.svg`)).data
+
+                logos.push(mxLibraryEntry(items.id, mxGraphModelXML(svgImage)))
+            }
+
+            console.log(`${category.header}: ${logos.length} logos`)
+            fs.writeFileSync(`generated/${category.header.replace('/', '-')}.xml`, mxLibraryXML(logos))
         }
-
-        console.log(`${category.header}: ${logos.length} logos`)
-        fs.writeFileSync(`generated/${category.header.replace('/', '-')}.xml`, mxLibraryXML(logos))
     }
 })();
