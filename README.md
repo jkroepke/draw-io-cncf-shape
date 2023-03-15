@@ -12,11 +12,11 @@ Left Top, navigate to
 
 ## CNCF Graduated Projects
 
-[https://jkroepke.github.io/draw-io-cncf-shape/CNCF Graduated Projects.xml]([https://jkroepke.github.io/draw-io-cncf-shape/Non-CNCF%20Member%20Products-Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/CNCF%20Graduated%20Projects.xml))
+[https://jkroepke.github.io/draw-io-cncf-shape/CNCF Graduated Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/CNCF%20Graduated%20Projects.xml)
 
 ## CNCF Incubating Projects
 
-[https://jkroepke.github.io/draw-io-cncf-shape/CNCF Incubating Projects.xml]([https://jkroepke.github.io/draw-io-cncf-shape/Non-CNCF%20Member%20Products-Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/CNCF%20Incubating%20Projects.xml))
+[https://jkroepke.github.io/draw-io-cncf-shape/CNCF Incubating Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/CNCF%20Incubating%20Projects.xml)
 
 ## CNCF Member Products-Projects
 
@@ -25,3 +25,9 @@ Left Top, navigate to
 ## Non-CNCF Member Products-Projects
 
 [https://jkroepke.github.io/draw-io-cncf-shape/Non-CNCF Member Products-Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/Non-CNCF%20Member%20Products-Projects.xml)
+
+## CNCF Sandbox Projects
+
+[https://jkroepke.github.io/draw-io-cncf-shape/CNCF Sandbox Projects.xml](https://jkroepke.github.io/draw-io-cncf-shape/CNCF%20Sandbox%20Projects.xml)
+
+
