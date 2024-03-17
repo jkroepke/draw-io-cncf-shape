@@ -66,8 +66,8 @@ if (!fs.existsSync('generated')) {
 }
 
 (async () => {
-    var urls = ['https://landscape.cncf.io/api/ids?format=card', 'https://landscape.cncf.io/api/ids?format=card&project=sandbox'];
-
+    //var urls = ['https://landscape.cncf.io/api/ids?format=card', 'https://landscape.cncf.io/api/ids?format=card&project=sandbox'];
+    var urls = ['https://landscape.cncf.io/data/full.json']
     for (var i = 0; i < urls.length; i++) {
 
         var res = await axios.get(urls[i])
